@@ -105,7 +105,7 @@ namespace DebugMenuUtility
             {
                 visible = !visible;
                 selected = 0;
-                onDebugMenuToggle.Invoke(visible);
+                onDebugMenuToggle?.Invoke(visible);
             }
 
             if (visible)

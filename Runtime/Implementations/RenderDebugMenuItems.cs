@@ -108,7 +108,7 @@ namespace DebugMenuUtility
         void Decrease() => Toggle(-1);
         void Toggle(int pad = 1)
         {
-            Screen.fullScreenMode = (FullScreenMode)(((int)Screen.fullScreenMode + pad) % 4);
+            Screen.fullScreenMode = (FullScreenMode)((int)Mathf.Repeat(Screen.fullScreenMode + pad, 4));
         }
     }
 
@@ -118,7 +118,7 @@ namespace DebugMenuUtility
         bool inited = false;
 
         public override string label => "Screen Resolution";
-        public override string value => $"{Screen.currentResolution.width}×{Screen.currentResolution.height}";
+        public override string value => $"{Screen.currentResolution.width}ï¿½{Screen.currentResolution.height}";
 
         public override Action OnValidate => Increase;
         public override Action OnLeft => Decrease;
@@ -146,7 +146,7 @@ namespace DebugMenuUtility
                 }
                 i++;
             }
-            var next = resolutions[(i + pad) % resolutions.Count];
+            var next = resolutions[(int)Mathf.Repeat(found + pad, resolutions.Count)];
             Screen.SetResolution(next.width, next.height, Screen.fullScreen);
         }
     }
