@@ -335,17 +335,6 @@ namespace DebugMenuUtility
         }
     }
 
-
-    public abstract class DebugMenuItem
-    {
-        public abstract string label { get; }
-        public virtual string value => string.Empty;
-
-        public virtual Action OnValidate => null;
-        public virtual Action OnLeft => null;
-        public virtual Action OnRight => null;
-    }
-
     [DebugMenuItem("")]
     class ExitDebugMenuItem : DebugMenuItem
     {
