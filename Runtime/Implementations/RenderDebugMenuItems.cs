@@ -108,7 +108,7 @@ namespace DebugMenuUtility
         void Decrease() => Toggle(-1);
         void Toggle(int pad = 1)
         {
-            Screen.fullScreenMode = (FullScreenMode)((int)Mathf.Repeat(Screen.fullScreenMode + pad, 4));
+            Screen.fullScreenMode = (FullScreenMode)((int)Mathf.Repeat((int)Screen.fullScreenMode + pad, 4));
         }
     }
 
